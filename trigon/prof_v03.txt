@@ -1,0 +1,39 @@
+Timer unit: 1e-06 s
+
+File: trigon_v03.py
+Function: init_lookupTable at line 26
+Total time: 0.017103 s
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    26                                           @profile
+    27                                           def init_lookupTable(lookupTable):
+    28         1            4      4.0      0.0  	inc=2.0*math.pi/points
+    29         1            1      1.0      0.0  	d=0.0
+    30      6001         3361      0.6     19.7  	for j in range(0,points):
+    31      6000         4786      0.8     28.0  		lookupTable[j][0]=math.cos(d)
+    32      6000         4945      0.8     28.9  		lookupTable[j][1]=math.sin(d)
+    33      6000         4006      0.7     23.4  		d=d+inc
+
+File: trigon_v03.py
+Function: trigon at line 36
+Total time: 18.117 s
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    36                                           @profile
+    37                                           def trigon(seed,N,points):
+    38         1           17     17.0      0.0  	random.seed(seed)
+    39         1            1      1.0      0.0  	inc=2.0*math.pi/points
+    40      1000          669      0.7      0.0  	for i in range(1,N):
+    41       999          945      0.9      0.0  		r=random.random()
+    42       999          671      0.7      0.0  		d=0.0
+    43   5994999      4026751      0.7     22.2  		for j in range(0,points):
+    44                                           			#x=r*math.cos(d)
+    45                                           			#y=r*math.sin(d)
+    46   5994000      4965260      0.8     27.4  			x=r*lookupTable[j][0]
+    47   5994000      4972780      0.8     27.4  			y=r*lookupTable[j][1]
+    48   5994000      4149807      0.7     22.9  			if(i==100 and j==100):
+    49         1           21     21.0      0.0  				print(x,end="")
+    50         1           35     35.0      0.0  				print(y)
+

@@ -1,0 +1,20 @@
+Timer unit: 1e-06 s
+
+File: matmult_nestedloop_v03.py
+Function: multmat at line 4
+Total time: 7.04048 s
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     4                                           @profile
+     5                                           def multmat(X,Y,result):
+     6     99999        66720      0.7      0.9  	lenY=len(Y)
+     7     99999        50210      0.5      0.7  	lenX=len(X)
+     8     99999        56741      0.6      0.8  	lenY0=len(Y[0])
+     9    399996       226376      0.6      3.2  	for i in range(lenX):
+    10   1499985       782799      0.5     11.1  		for j in range(lenY0):
+    11   1199988       599732      0.5      8.5  			tmp=result[i][j] 
+    12   4799952      2493421      0.5     35.4  			for k in range(lenY):
+    13   3599964      2170581      0.6     30.8  				tmp += X[i][k] * Y[k][j]
+    14   1199988       593901      0.5      8.4  			result[i][j]=tmp
+

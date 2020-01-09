@@ -1,0 +1,50 @@
+Timer unit: 1e-06 s
+
+File: sumvec_v03.py
+Function: decrement at line 5
+Total time: 0 s
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     5                                           @profile
+     6                                           def decrement(value,vec,i,lim,div):
+     7                                           	if(vec[i]>=lim):
+     8                                           		return value
+     9                                           	else:
+    10                                           		return value-vec[i]/div
+
+File: sumvec_v03.py
+Function: increment at line 12
+Total time: 0 s
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    12                                           @profile
+    13                                           def increment(value,vec,i,lim,div):
+    14                                           	if(vec[i]<lim):
+    15                                           		return value+vec[i]/div
+    16                                           	else:
+    17                                           		return value
+
+File: sumvec_v03.py
+Function: sumvec at line 18
+Total time: 4.76434 s
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    18                                           @profile
+    19                                           def sumvec(vec,n,lim,div):
+    20         1            6      6.0      0.0  	value=0.0
+    21   2500001      1141569      0.5     24.0  	for i in range(0,n):
+    22   2500000      1372112      0.5     28.8  		if(i%2==0):
+    23                                           			#value=increment(value,vec,i,lim,div)
+    24   1250000       769023      0.6     16.1  			if(vec[i]<lim):
+    25    625000       377072      0.6      7.9  				value = value+vec[i]/div
+    26                                           
+    27                                           		else:
+    28                                           			#value=decrement(value,vec,i,lim,div)
+    29   1250000       748447      0.6     15.7  			if(vec[i]<lim):
+    30    625000       356113      0.6      7.5  				value = value-vec[i]/div
+    31                                           
+    32         1            1      1.0      0.0  	return value
+
